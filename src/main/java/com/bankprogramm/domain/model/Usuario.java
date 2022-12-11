@@ -2,6 +2,9 @@ package com.bankprogramm.domain.model;
 
 import java.time.Instant;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +23,13 @@ public class Usuario {
 	private String senha;
 	private String nomeUsuario;
 	private Instant dataCadastro;
-	
+
 	private Status status;
-	private UsuarioDTO usuarioDto;
+
+	public Usuario(String senha, String nomeUsuario, Instant dataCadastro, Status status) {
+		this.senha = senha;
+		this.nomeUsuario = nomeUsuario;
+		this.dataCadastro = dataCadastro;
+		this.status = status;
+	}
 }

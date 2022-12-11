@@ -8,9 +8,8 @@ import lombok.Getter;
 
 @Component
 public class Saldo {
-	
+
 	@Getter
 	private BigDecimal saldo;
-	
-	
+
 }
