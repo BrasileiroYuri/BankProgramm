@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bankprogramm.domain.model.PessoaFisica;
 import com.bankprogramm.domain.repository.PessoaFisicaRepository;
+import com.bankprogramm.domain.service.PessoaFisicaService;
 
 @RestController
 @RequestMapping("/pessoafisica")
@@ -27,12 +28,10 @@ public class PessoaFisicaController {
 	public List<PessoaFisica> listar() {
 		return pessoaFisicaRepository.findAll();
 	}
+
 	@GetMapping("/{pessoaId}")
-	public ResponseEntity<PessoaFisica> buscar(@PathVariable Long pessoaId) {
-		Optional<PessoaFisica> optionalPessoa= pessoaFisicaRepository.findById(pessoaId);
-		if (optionalPessoa.isPresent()) {
-			return ResponseEntity.ok(optionalPessoa.get());
-		}
-		return ResponseEntity.notFound().build();
+	public PessoaFisica buscar(@PathVariable Long pessoaId) {
+	 return PessoaFisicaService.buscar(pessoaId);
 	}
+
 }
