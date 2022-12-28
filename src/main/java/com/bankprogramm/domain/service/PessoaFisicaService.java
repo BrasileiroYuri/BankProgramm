@@ -11,14 +11,15 @@ import com.bankprogramm.domain.repository.PessoaFisicaRepository;
 public class PessoaFisicaService {
 
 	@Autowired
-	private PessoaFisicaRepository repository;	
-	
-	private PessoaFisica buscar(Long pessoaId) {
+	private PessoaFisicaRepository repository;
+
+	public PessoaFisica buscar(Long pessoaId) {
 		return repository.findById(pessoaId).orElseThrow(() -> new PessoaNaoEncontrada(null));
-		
-		
+
 	}
-	
-	
-	
+
+	public PessoaFisica adicionar(PessoaFisica pessoa) {
+		return repository.save(pessoa);
+
+	}
 }

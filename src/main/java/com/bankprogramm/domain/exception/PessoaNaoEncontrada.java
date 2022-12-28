@@ -14,6 +14,5 @@ public class PessoaNaoEncontrada extends RuntimeException {
 
 	public PessoaNaoEncontrada(Long pessoaId) {
 		this(String.format("Cadastro de pessoa com id %d", pessoaId));
-
 	}
 }
